@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FrontEnd Store</title>
+    <!--agregamos normalize para que el codigo se vea bien en la mayoria de navegadores-->
+    <link rel="stylesheet" href="css/normalize.css">
+    <!--link de la fuente para el sitio-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Krub:wght@400;700&family=Staatliches&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+    <!---->
+    <header class="header"><!--en el enfoque BEM este seria un bloque-->
+        <!--para que el logo se dirija a la pagina principal-->
+        <a href="index.html">
+            <img class="header__logo" src="img/logo.png" alt="logotipo"> <!--esto seria un elemento del bloque-->
+        </a>
+    </header>
+
+    <nav class="navegacion"> <!--barra de navegacion. bloque navegacion-->
+        <!--vamos a indicar que esta clase va a ser diferente con un doble guion medio
+        indica que se utiliza navegacion__enlace pero un poco diferente
+        es decir sera un modificador-->
+        <a class="navegacion__enlace" href="index.html">Tienda</a>
+        <a  class="navegacion__enlace navegacion__enlace--activo" href="nosotros.html">Nosotros</a>
+    </nav>
+
+    <main class="contenedor">
+        <h1>Nosotros</h1>
+
+        <div class="nosotros"> <!--bloque-->
+            <div class="nosotros__contenido">
+                <p>Nulla dapibus velit libero, nec consectetur mi consequat et. 
+                    Suspendisse eu fringilla turpis, et tincidunt felis. Vestibulum 
+                    feugiat tempus enim, at ultricies arcu scelerisque ac. Ut vulputate, 
+                    ligula vitae sollicitudin feugiat, risus enim dignissim sem, in 
+                    euismod mauris nisi in lorem. 
+                </p>
+                <p>Praesent fringilla blandit magna, id dignissim mi fringilla eu. Curabitur 
+                    tempus vehicula est, vel lobortis erat rutrum vel. Nulla eget urna eget 
+                    massa convallis pellentesque. Donec vel magna elit. Integer fringilla sed 
+                    libero ac vehicula. 
+                </p>
+
+            </div>
+            <img class="nosotros__imagen" src="img/nosotros.jpg" alt="imagen nosotros">
+        </div>
+    </main>
+
+    <section class="contenedor comprar"> <!--bloque comprar-->
+        <h2 class="comprar__titulo">¿Por qué Comprar con nosotros?</h2> <!--elemento del bloque comprar-->
+
+        <div class="bloques">
+            <div class="bloque">
+                <img class="bloque__imagen" src="img/icono_1.png" alt="porque comprar">
+                <h3 class="bloque__titulo">El Mejor Precio</h3>
+                <p>Praesent fringilla blandit magna, id dignissim
+                mi fringilla eu.</p>
+            </div> <!--cierre bloque-->
+
+            <div class="bloque">
+                <img class="bloque__imagen" src="img/icono_2.png" alt="porque comprar">
+                <h3 class="bloque__titulo">Para Devs</h3>
+                <p>Praesent fringilla blandit magna, id dignissim
+                mi fringilla eu.</p>
+            </div> <!--cierre bloque-->
+
+            <div class="bloque">
+                <img class="bloque__imagen" src="img/icono_3.png" alt="porque comprar">
+                <h3 class="bloque__titulo">Envio Gratis</h3>
+                <p>Praesent fringilla blandit magna, id dignissim
+                mi fringilla eu.</p>
+            </div> <!--cierre bloque-->
+
+            <div class="bloque">
+                <img class="bloque__imagen" src="img/icono_4.png" alt="porque comprar">
+                <h3 class="bloque__titulo">La Mejor Calidad</h3>
+                <p>Praesent fringilla blandit magna, id dignissim
+                mi fringilla eu.</p>
+            </div> <!--cierre bloque-->
+        </div> <!--cierre bloques-->
+    </section>
+
+    <footer class="footer"> <!--bloque footer-->
+        <p class="footer__texto">Front End Store - Todos los derechos Reservados 2023.</p> <!--elemento del bloque-->
+    </footer>
+</body>
+</html>

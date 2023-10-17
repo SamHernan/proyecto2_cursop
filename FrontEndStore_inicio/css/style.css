@@ -1,0 +1,246 @@
+/*Enfoque con BEM*/
+/*valores o variables que se van a reutilizar*/
+:root {
+    --primario: #9c27b0;
+    --primarioOscuro: #89119D;
+    --secundario: #FFCE00;
+    --secundarioOscuro: rgb(233,287,2);
+    --blanco: #FFF;
+    --negro: #000;
+    /*fuente*/
+    --fuentePrincipal: 'Staatliches', cursive;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; /*para poder agregar que un rem sea igual a 10px*/
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/*Globales*/
+body {
+    background-color: var(--primario);/*color del sitio morado*/
+    font-size: 1.6rem; /*tamaño letra del sitio*/
+    line-height: 1.5; /*interlineado del sitio*/
+}
+
+/*para que todos los parrafos se vean iguales*/
+p {
+    font-size: 1.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--blanco);
+}
+
+/*los encales no tendran el interlineado de abajo*/
+a {
+    text-decoration: none;
+}
+
+/*para todas las imagenes*/
+img {
+    width: 100%;
+}
+
+.contenedor {
+    max-width: 120rem; /*para el espacio que ocupan las imagenes*/
+    margin: 0 auto; /*para centrar las imagenes*/
+}
+
+h1, h2, h3 {
+    text-align: center; /*alineados al centro*/
+    color: var(--secundario);
+    font-family: var(--fuentePrincipal);
+}
+h1 {
+    font-size: 4rem;
+}
+h2 {
+    font-size: 3.2rem;
+}
+h3 {
+    font-size: 2.4rem;
+}
+
+/*header*/
+.header {
+    display: flex;/*debe estar centrado*/
+    justify-content: center; /*centra horizontalmente*/
+}
+
+.header__logo {
+    margin: 3rem 0; /*margen arriba y abajo, e izquierda y derecha*/
+
+}
+
+/*Footer*/
+.footer {
+    background-color: var(--primarioOscuro);
+    padding: 1rem 0; /*padding arriba y abajo y 0 izquierda y derecha*/
+    margin-top: 2rem; /*separacion*/
+}
+.footer__texto {
+    font-family: var(--fuentePrincipal); /*tipo fuente*/
+    text-align: center; /*centrar texto*/
+    font-size: 2.2rem; /*hacer grande el texto*/
+}
+
+/*Navegacion*/
+.navegacion {
+    background-color: var(--primarioOscuro);
+    padding: 1rem 0;
+    display: flex; /*centrar horizontalmente el texto*/
+    justify-content: center;
+    gap: 2rem; /*separacion de los enlaces en la barra. Forma nueva*/
+}
+.navegacion__enlace {
+    font-family: var(--fuentePrincipal); /*tipo de fuente*/
+    color: var(--blanco); /*color fuente*/
+    font-size: 3rem; /*tamaño letra*/
+    /*margin-right: 2rem; separacion del texto enlaces forma vieja pero mas soportable en navegadores*/
+}
+
+/*cambio color al posicionar sobre los enlaces en la barra*/
+.navegacion__enlace--activo, /*modificador este permite que el enlace aparezca en un color diferente en este caso amarillo*/
+.navegacion__enlace:hover {
+    color: var(--secundario); /*color amarillo sobre enlace*/
+}
+
+
+/*Grid*/
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/*productos*/
+.producto {
+    background-color: var(--primarioOscuro);
+    padding: 1rem;
+}
+.producto__nombre {
+    font-size: 4rem;
+}
+.producto__precio {
+    font-size: 2.8rem;
+    color: var(--secundario);
+}
+.producto__nombre,
+.producto__precio {
+    font-family: var(--fuentePrincipal);
+    margin: 1rem 0; /*margen letra arriba y abajo*/
+    text-align: center; /*texto centrado*/
+    line-height: 1.2; /*interlineado*/
+}
+
+/*Graficos*/
+.grafico {
+    min-height: 30rem;
+    background-repeat: no-repeat; /*para que la imagen no se repita*/
+    background-size: cover; /*para que la imagen llene todo el espacio disponible*/
+    grid-column: 1 / 3; /*en la columna del 1 a la 3*/
+}
+.grafico--camisas {
+    grid-row: 2 / 3; /*esto dice que el grafico se posicione en la linea de la 2 a la 3*/
+    background-image: url(../img/grafico1.jpg); /*para poner el grafico*/
+}
+.grafico--node {
+    background-image: url(../img/grafico2.jpg); /*segundo grafico*/
+    grid-row: 8 / 9; /*mover el grafico hacia arriba*/
+}
+/*dentro de un media para adaptar a dispositivos mas pequeños*/
+@media (min-width: 768px) {
+    .grafico--node {
+        grid-row: 5 / 6; /*posicion en la fila*/
+        grid-column: 2 / 4; /*posicion en la columna*/
+    }
+}
+
+/*Nosotros*/
+.nosotros {
+    display: grid; /*agrega el texto a un grid para trabajar con columnas*/
+    grid-template-rows: repeat(2, auto);
+}
+/*el media adapta el tamaño a dispositivos pequeños y hace que la imagen se vaya hacia abajo al disminuir el tamaño*/
+@media (min-width: 768px) {
+    .nosotros {
+        grid-template-columns: repeat(2, 1fr); /*crea 2 columnas*/
+        column-gap: 2rem;
+    }
+}
+.nosotros__imagen {
+    grid-row: 1 / 2; /*para que se mueva la imagen hacia arriba cuando se haga pequeño el tamaño*/
+}
+@media (min-width: 768px) {
+    .nosotros__imagen {
+        grid-column: 2 / 3;
+    }
+}
+
+/*Bloques*/
+.bloques {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /*para que cuando se haga pequeño se vean 2 y 2 imagenes*/
+    gap: 2rem; /*para separar las imagenes en todas las direcciones*/
+}
+@media (min-width: 768px) {
+    .bloques {
+        grid-template-columns: repeat(4, 1fr); /*para 4 columnas, es decir se ven las 4 imagenes en pantalla grande*/
+    }
+}
+.bloque {
+    text-align: center; /*centra texto*/
+}
+.bloque__titulo {
+    margin: 0; /*quita margen a los h para que el texto no quede tan separado de las imagenes*/
+}
+
+/*Pagina del producto*/
+@media (min-width: 768px) {
+    .camisa {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /*para 2 columnas del mismo ancho, mitad y mitad*/
+        column-gap: 2rem; /*separacion*/
+    }
+}
+
+.formulario {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /*dividir en 2 columnas los campos*/
+    gap: 2rem; /*separacion*/
+}
+.formulario__campo {
+    /*aunmenta grosor tipo de linea, solida color borde*/
+    border: 1rem solid var(--primarioOscuro);
+    background-color: transparent; /*quita fondo*/
+    color: var(--blanco); /*letra blanca*/
+    font-size: 2rem; /*tamaño letra*/
+    font-family: Arial, Helvetica, sans-serif; /*tipo de fuente*/
+    padding: 1rem; /*hace grande el imput*/
+    appearance: none; /*quita la flecha de hacia abajo*/
+}
+.formulario__submit {
+    background-color: var(--secundario); /*color al boton agregar al carrito*/
+    border: none; /*quitar borde que traen los input*/
+    font-size: 2rem; /*agrandar letra*/
+    font-family: var(--fuentePrincipal); /*tipo de letra*/
+    padding: 2rem; /*grosor boton*/
+    /*transition va a lograr el cambio de color. se le pasa en que hara el cambio
+    en este caso el background color, despues el tiempo que quieres que dure la 
+    la animacion y el tipo de animacion*/
+    transition: background-color .3s ease;
+    grid-column: 1 / 3; /*posiciona el boton*/
+}
+/*recuperar la manita que se quita de los submit cuando se da estilo*/
+.formulario__submit:hover {
+    cursor: pointer;
+    /*para la animacion del submit cambio de color cuando pasa cursor*/
+    background-color: var(--secundarioOscuro);
+}

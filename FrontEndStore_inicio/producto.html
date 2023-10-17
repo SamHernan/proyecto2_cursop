@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FrontEnd Store</title>
+    <!--agregamos normalize para que el codigo se vea bien en la mayoria de navegadores-->
+    <link rel="stylesheet" href="css/normalize.css">
+    <!--link de la fuente para el sitio-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Krub:wght@400;700&family=Staatliches&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+    <!---->
+    <header class="header"><!--en el enfoque BEM este seria un bloque-->
+        <!--para que el logo se dirija a la pagina principal-->
+        <a href="index.html">
+            <img class="header__logo" src="img/logo.png" alt="logotipo"> <!--esto seria un elemento del bloque-->
+        </a>
+    </header>
+
+    <nav class="navegacion"> <!--barra de navegacion. bloque navegacion-->
+        <!--vamos a indicar que esta clase va a ser diferente con un doble guion medio
+        indica que se utiliza navegacion__enlace pero un poco diferente
+        es decir sera un modificador-->
+        <a class="navegacion__enlace navegacion__enlace--activo" href="index.html">Tienda</a>
+        <a  class="navegacion__enlace" href="nosotros.html">Nosotros</a>
+    </nav>
+
+    <main class="contenedor">
+        <h1>Reac JS</h1>
+
+        <div class="camisa">
+            <img class="camisa__imagen" src="img/3.jpg" alt="Imagen del Producto">
+
+            <div class="camisa__contenido">
+                <p>Praesent fringilla blandit magna, id dignissim mi fringilla eu. Curabitur 
+                    tempus vehicula est, vel lobortis erat rutrum vel. Nulla eget urna eget 
+                    massa convallis pellentesque.</p>
+
+                    <form class="formulario">
+                        <select class="formulario__campo">
+                            <!--disable y selected nos ayuda a que el option no se pueda seleccionar pero sea el valor que aparezca por defecto-->
+                            <option disabled selected>-- Seleccionar Talla --</option> 
+                            <option>Chica</option>
+                            <option>Mediana</option>
+                            <option>Grande</option>
+                        </select>
+                        <!--min sirve para que el input no permita disminuir la cantidad a numeros negativos-->
+                        <input class="formulario__campo" type="number" placeholder="Cantidad" min="1">
+                        <!--el tipo submit es para cuando se van a enviar datos a un servidor-->
+                        <input class="formulario__submit" type="submit" value="Agregar al Carrito">
+                    </form>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="footer"> <!--bloque footer-->
+        <p class="footer__texto">Front End Store - Todos los derechos Reservados 2023.</p> <!--elemento del bloque-->
+    </footer>
+</body>
+</html>
